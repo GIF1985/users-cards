@@ -1,0 +1,22 @@
+.button {
+  width: 196px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 36px;
+  margin-top: 26px;
+  text-transform: uppercase;
+}
+
+.blue {
+  background-color: rgba(92, 211, 168, 1);
+  color: white;
+}
+
+.gray {
+  background-color: rgba(235, 216, 255, 1);
+  color: white;
+}

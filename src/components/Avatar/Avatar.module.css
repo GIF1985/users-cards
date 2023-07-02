@@ -1,0 +1,21 @@
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 4.391631126403809px 3.2937235832214355px 0px
+    rgba(251, 248, 255, 1) inset;
+
+  box-shadow: 0px 4.391631126403809px 4.391631126403809px 0px
+    rgba(0, 0, 0, 0.06);
+
+  box-shadow: 0px -2.1958155632019043px 4.391631126403809px 0px rgba(
+      174,
+      123,
+      227,
+      1
+    ) inset;
+  background: rgba(235, 216, 255, 1);
+  border: 5px solid rgba(235, 216, 255, 1);
+  position: relative;
+  z-index: 1;
+}
