@@ -1,7 +1,9 @@
-import React from 'react';
-
 const Followers = () => {
-  return <div>Hello, Followers!</div>;
-};
+    return (
+        <div>
+            s
+        </div>
+    )
+}
 
 export default Followers;
