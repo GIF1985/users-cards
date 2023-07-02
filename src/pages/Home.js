@@ -2,21 +2,22 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Button from '../components/Button/Button';
 import { getUsers, updateUser } from '../services/api';
 import Avatar from '../components/Avatar/Avatar';
-// import styles from './Home.module.css';
+import styles from './Home.module.css';
+
 const Home = () => {
   const defaultFollowers = 100500;
   const [users, setUsers] = useState([]);
   const [isFollowing, setIsFollowing] = useState({});
 
   useEffect(() => {
-    const lsFollowing = JSON.parse(localStorage.getItem('following') ?? '{}');
+    const lsFollowing = JSON.parse(localStorage.getItem('following') || '{}');
     setIsFollowing(lsFollowing);
     (async () => {
       try {
         const data = await getUsers();
         setUsers(data);
       } catch (e) {
-        console.log(e?.response?.data);
+        console.log(e.response && e.response.data);
       }
     })();
   }, []);
@@ -33,7 +34,7 @@ const Home = () => {
           isFollowing[user.id] = true;
         }
         const updatedUser = await updateUser(user.id, { ...user });
-        if (updatedUser?.id) {
+        if (updatedUser && updatedUser.id) {
           const index = allUsers.findIndex(u => u.id === updatedUser.id);
           if (index !== -1) {
             allUsers[index] = updatedUser;
@@ -46,7 +47,7 @@ const Home = () => {
         console.log(e);
       }
     },
-    [users]
+    [users, isFollowing]
   );
 
   return (
@@ -71,7 +72,7 @@ const Home = () => {
             </div>
             <Avatar src={u.avatar} alt={u.user} />
             {/* <p>{u.user}</p> */}
-            <p>Tweets: {u.tweets ?? 0}</p>
+            <p>Tweets: {u.tweets !== undefined ? u.tweets : 0}</p>
             <p>
               Followers:{' '}
               {(defaultFollowers + u.followers).toLocaleString('en-GB')}
