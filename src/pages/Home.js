@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Button from '../components/Button/Button';
 import { getUsers, updateUser } from '../services/api';
 import Avatar from '../components/Avatar/Avatar';
-import styles from './Home.module.css';
+// import styles from './Home.module.css';
 const Home = () => {
   const defaultFollowers = 100500;
   const [users, setUsers] = useState([]);
